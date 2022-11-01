@@ -1,0 +1,28 @@
+/* add css module styles here (optional) */
+
+.test {
+  margin: 2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+  font-size: 2em;
+  text-align: center;
+  
+}
+
+
+.field {
+  box-sizing: border-box;
+  display: flex;
+  border: 3px solid red;
+}
+.fieldName {
+  
+  border:2px solid green;
+}
+.countryCode {
+  
+  border:2px solid yellow;
+}
+.phoneNumber {
+  border:2px solid blue;
+}

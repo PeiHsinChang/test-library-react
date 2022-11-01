@@ -1,0 +1,123 @@
+@use "sass:math";
+@import './ezFunction';
+@import './colorDictionary';
+
+
+$containerMinWidth: 320px;
+$containerMaxWidth: 768px;
+$containerMinHeight: 330px;
+$containerWidthS: 768px;
+$containerWidthSMinWidth: 1024px;
+$containerWidthM: 960px;
+$containerWidthMMinWidth: 1280px;
+$containerWidthL: 1280px;
+$containerWidthLMinWidth: 1680px;
+$iphone6: 375px;
+$iphone6plus: 414px;
+$maxPortraitWidth: 540px; // https://material.io/tools/devices/
+$inputRangeTime: 0.3s;
+$layoutRatio: math.div( 320, 375);
+
+// 邊界・間距
+$gap-layout: ez-iOS-unit(1rem); //底層layout邊界
+$gap-context: ez-iOS-unit(1.6rem); //內文邊界/卡片邊界/段落邊界
+$gap-popup-LR: ez-iOS-unit(2.4rem); //客製訊息
+$gap-popup-TB: ez-iOS-unit(2rem); //客製訊息
+$gap-line-TB: ez-iOS-unit(
+  1.2rem
+); //列表上下間距/列表title與內容間距/卡片title上下空間
+$gap-line-last: ez-iOS-unit(2.4rem); //列表最後一行間距
+$gap-inner-object: ez-iOS-unit(0.8rem); //option彼此橫向上下間距/廣告格彼此橫向上下間距
+$gap-inner-input: ez-iOS-unit(0.6rem); //input padding
+$gap-sub-title: ez-iOS-unit(0.4rem); //title 和 subtitle 的間距
+$gap-group: ez-iOS-unit(2rem); //option group上下間距/廣告group上下間距
+$gap-paragraph: ez-iOS-unit(2.8rem); //文章段落間距
+$gap-button-TB: ez-iOS-unit(1.4rem); //option group上下間距/廣告group上下間距
+
+$fz-xxs: ez-iOS-unit(1rem);
+$fz-xs: ez-iOS-unit(1.2rem);
+$fz-index: ez-iOS-unit(1.3rem); // 只有首頁選單在用
+$fz-s: ez-iOS-unit(1.4rem);
+$fz-m: ez-iOS-unit(1.6rem);
+$fz-nav: ez-iOS-unit(1.7rem); // !只有! navigationBar 在用，其他不會用到
+$fz-l: ez-iOS-unit(1.8rem);
+$fz-xl: ez-iOS-unit(2rem);
+$fz-xxl: ez-iOS-unit(2.2rem);
+$fz-price: ez-iOS-unit(2.6rem);
+$fz-initial: 16px; // iOS 在可輸入區域如果 font-size < 16px 會自動 zoom in，所以要讓他固定在 16px
+
+// font weight
+$fw-thin: 100;
+$fw-extraLight: 200;
+$fw-light: 300;
+$fw-regular: 400; // 等同於 font-weight: normal
+$fw-medium: 500;
+$fw-semiBold: 700; // 因為 android 沒有 600 所以一律改 700
+$fw-bold: 700; // 等同於 font-weight: bold
+$fw-extraBold: 800;
+$fw-black: 900;
+
+// 語意化z-index
+$zIndex-under: -1;
+$zIndex-reset: 0;
+$zIndex-over-original: 1;
+$zIndex-over-previous: 2;
+$zIndex-button-fixed: 2;
+$zIndex-over-previous-cover: 3;
+$zIndex-navigation: 4;
+$zIndex-navigation-over: 5;
+$zIndex-under-modal: 99;
+$zIndex-modal: 100;
+$zIndex-over-modal: 101;
+$zIndex-alert: 200;
+
+// 圓角設定
+$border-radius-rounded: 50%;
+$border-radius-msg: ez-iOS-unit(2rem);
+$border-radius-pop: ez-iOS-unit(1.4rem);
+$border-radius-discount: ez-iOS-unit(1rem);
+$border-radius-card: ez-iOS-unit(0.5rem);
+$border-radius-button: ez-iOS-unit(0.4rem);
+$border-radius-img: ez-iOS-unit(0.4rem);
+$border-radius-option: ez-iOS-unit(0.4rem);
+$border-radius-table: ez-iOS-unit(0.4rem);
+$border-radius-fold-tag: ez-iOS-unit(0.3rem);
+$border-radius-bullet-tag: ez-iOS-unit(0.2rem);
+$border-radius-card-list: ez-iOS-unit(0.6rem);
+
+// styleguidist 預設值
+$assetPrefix: '/' !default;
+// navBar 高度 ($gap-inner-object*2 會有些微的縫隙，縮小一點點並floor到小數點後兩位)
+$headerH: decimal-round($gap-paragraph + $gap-inner-object * 1.99, 2, floor);
+// smart banner 變數
+$smartBannerLogoH: 4rem;
+$smartBannerPadding: 0.9rem;
+$smartBannerHeight: $smartBannerLogoH + $smartBannerPadding * 2;
+
+@mixin text-overflow() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin textBlock-ellipsis($num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+@mixin iOS-input-ZoomIn($wrapperScale: false) {
+  // iOS 限定樣式，避免 input font-size < 16px 導致 auto zoom 造成 modal 崩壞
+  @supports (-webkit-overflow-scrolling: touch) {
+    @if $wrapperScale == true {
+      // 除了表單欄位之外，wrapper 底下的文字也一併調整(ex OrderRow.rowHead)
+      font-size: $fz-initial;
+    }
+    input[type='text'] {
+      font-size: $fz-initial;
+    }
+  }
+}
+

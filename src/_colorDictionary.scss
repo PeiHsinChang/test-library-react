@@ -1,0 +1,49 @@
+$green-ez: #11d073; // rgb(17,208,115)
+$green2: #0c9251; // rgb(12,146,81)
+$green3: #37d787; // rgb(55,215,135)
+$green4: #e1f4eb; // rgb(225,244,235)
+$green5: #f5faee; // rgb(245,250,238)
+$green6: #54d03e; // rgb(84,208,62)
+
+$orange1: #ff8b00;
+$orange2: #fab617;
+$orange3: #ffa31c;
+$orange4: #ffefe5;
+$orange5: #ff9650;
+
+$red1: #d0021b;
+$red2: #f95574;
+$red3: #ff708b;
+$red4: #eb0000;
+
+$blue1: #0076ff;
+$blue2: #0092ff;
+$blue3: #00c6ff;
+
+$gray1: #222222; // rgb(34, 34, 34)
+$gray2: #666666; // #color3 rgb(102, 102, 102)
+$gray3: #999999; // #color4 rgb(153, 153, 153)
+$gray4: #bbbbbb; // rgb(187, 187, 187)
+$gray5: #e3e3e3; // rbg(227, 227, 227)
+$gray6: #f3f3f3; // rgb(243, 243, 243) | bgGray
+$white: #ffffff;
+$black: #000000;
+
+// ====== 文字 ======
+$text-color-normal: $gray1;
+$text-color-gray: $gray2; // #color3 rgb(102, 102, 102)
+$text-color-hint: $gray3; // #color4 rgb(153, 153, 153)
+$text-color-hint-light: $gray4; // rgb(187, 187, 187)
+$text-color-prime: $green2;
+$text-color-price: $orange1;
+$text-color-link: $blue1;
+
+// ====== 外框 ======
+$border-color-normal: $gray4;
+$border-color-ad: $gray5;
+$border-color-app-tag: $blue1;
+$border-color-price: $orange1;
+$border-color-other: $green-ez;
+$border-color-split: $gray5;
+$border-color-prime: $green2;
+

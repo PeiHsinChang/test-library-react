@@ -1,0 +1,196 @@
+@import '../../_variables';
+
+$transitionDuration: 0.5s;
+$transitionEase: ease;
+
+
+
+.bg,
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-width: $containerMinWidth;
+}
+
+.bg {
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100vh;
+  height: -webkit-fill-available;
+  z-index: $zIndex-modal;
+}
+
+.wrapper {
+  -webkit-overflow-scrolling: touch; // iOS 加這行滑動才不會卡卡
+  top: 10%;
+  height: 90%;
+  margin: auto;
+  max-width: $containerMaxWidth;
+  z-index: $zIndex-modal;
+  // opacity: 0;
+  // transform: translateY(100%);
+  transition: all $transitionDuration $transitionEase;
+  // &.open {
+    opacity: 1;
+    // transform: translateY(0);
+  // }
+  background-color: white;
+  border-top-right-radius: $border-radius-card-list;
+  border-top-left-radius: $border-radius-card-list;
+}
+
+.modalWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: $white;
+  height: 100%;
+  border-top-right-radius: $border-radius-card-list;
+  border-top-left-radius: $border-radius-card-list;
+}
+
+.headingBlock {
+  box-sizing: border-box;
+  // outline: 2px solid red;
+  font-size: $fz-nav;
+  text-align: center;
+  border-bottom: 1px solid $border-color-split;
+  flex-shrink: 0;
+  padding: $gap-layout;
+  position: relative;
+  .headingTitle {
+    font-size: $fz-nav;
+  }
+  .closeBtn {
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: $gap-layout;
+    top: 50%;
+    /** transform( 垂直, 水平)   */ 
+    transform: translate(0, -50%);
+  }
+}
+
+
+
+// 以上修改 
+
+.countryCodeWrapper {
+  box-sizing: border-box;
+  height: 95%;
+  padding: $gap-context;
+  margin-bottom: $gap-context;
+}
+
+
+.countryCodeContent {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  // border: 2px solid blue;
+  // overflow: hidden;
+}
+
+.indexListWrapper {
+  box-sizing: border-box;
+  position: absolute;
+  right: $gap-layout;
+  .indexList {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .indexItem {
+    font-size: $fz-xxs;
+
+    text-align: center;
+    padding: 1px;
+    color: $text-color-gray;
+    text-decoration: none;
+  }
+  .indexItemChecked {
+    padding: 1px;
+    text-align: center;
+    font-size: 10px;
+    color: $text-color-prime;
+    text-decoration: none;
+  }
+}
+
+.TopContent {
+  width: 100%;
+ padding-bottom: $gap-context;
+  .noticeText {
+    color: $text-color-price;
+    font-size: $fz-xxs; // 待調整
+    padding-bottom: $gap-button-TB;
+  }
+  .inputSearch, .inputSearch:before, .inputSearch:after {
+    box-sizing: border-box;
+  } 
+  .inputSearch {
+    position: relative;
+    display: flex;
+    padding: $gap-button-TB $gap-context;
+    border: 1px solid $border-color-normal;
+    border-radius: $border-radius-button;
+    width: 100%;
+    // max-height: ez-iOS-unit(4.4rem);
+    font-size: $fz-s;
+    input {
+      border: none;
+      padding-left: $gap-inner-object;
+    }
+    input:focus{
+      outline: none;
+    }
+  }
+}
+
+.codeListWrapper {
+  height: 80%;
+}
+
+.codeLists {
+  font-size: $fz-xs;
+  height: 100%;
+  overflow: scroll;
+  .indexArea {
+    box-sizing: border-box;
+    padding: 12px 0;
+    border-bottom: 1px solid $border-color-ad;
+    &:first-child {
+      padding-top: 4px;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    .indexTitle {
+      width: 100%;
+      padding-bottom: 12px;
+      color: $text-color-hint-light;
+    }
+  }
+}
+
+.countries {
+  box-sizing: border-box;
+  .country {
+    padding: 6px 0 ;
+    .countryZhName {
+      color: $text-color-normal;
+      font-size: $fz-s;
+      padding-bottom: 2px;
+    }
+    .countryZhNameChecked {
+      color: $text-color-prime;
+    }
+    .countryEnName {
+      font-size: $fz-xs;
+      color: $text-color-hint;
+    }
+  }
+}
+
